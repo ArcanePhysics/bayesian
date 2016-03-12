@@ -1,0 +1,29 @@
+Class Word
+Holds:
+Tuple [“Word" = “None”, Frequency = 0, Probability = 0]
+
+Class Text
+Holds:
+List [Words]
+int length = 0
+string Type = “none”
+Methods:
+parse(path to file = “”, _List[Words]) - fills the List[Words])
+getWord(index = 0) - returns index Word
+
+
+Class Type
+Holds:
+string name = “none”
+List [Words]
+Methods:
+update(path to file = “”, _List[Words]) - fills the List[Words]) - updates the probabilities and adds new words
+getFreq(Word) - returns frequency of a word;
+
+Class Identifier
+Holds:
+List [Types]
+train(path to file = “”, _List[Words]) - fills the List[Words], “Type Name”) - updates or creates new type
+check(path to file = “”, _List[Words]) - fills the List[Words]) - returns Type of text
+
+
