@@ -64,13 +64,5 @@ def test():
 		print obj
 		# obj.probability <- get/set probability
 
-	d = Document()
-	d.initFromFile('test1')
-	print d._rawData
-
-	## Example use case
-	for (key, obj) in d.words.iteritems():
-		print obj
-
 if __name__ == "__main__":
  	test()
