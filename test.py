@@ -1,4 +1,5 @@
 from parsing.document import Document, Word
+from TypeClass import Type
 from os import path
 
 def test():
@@ -12,9 +13,12 @@ def test():
 		d.initFromFile(p)
 		docs.append(d)
 
-	## Example use case
-	for doc in docs:
-		print doc.words
+	spam = Type( docs[0], 'spam' )
+
+	for d in docs[1:5]:
+		spam.train(d)
+
+	print spam.getProb( 'people' )
 
 if __name__ == "__main__":
  	test()
