@@ -16,7 +16,8 @@ class Document(object):
 		self._rawData = []
 		self.words = {}
 
-	def parseFile(fileName):
+	@staticmethod
+	def _parseFile(fileName):
 		f = open(fileName)
 		text = f.read().lower()
 		return Document._preprocessArray(text.split())
@@ -36,7 +37,7 @@ class Document(object):
 		return r
 
 	def initFromFile(self, fileName):
-		self._rawData = parseFile(fileName)
+		self._rawData = Document._parseFile(fileName)
 		self._initWords()
 
 	def initFromArray(self, stringArray):
@@ -62,6 +63,14 @@ def test():
 	for (key, obj) in d.words.iteritems():
 		print obj
 		# obj.probability <- get/set probability
+
+	d = Document()
+	d.initFromFile('test1')
+	print d._rawData
+
+	## Example use case
+	for (key, obj) in d.words.iteritems():
+		print obj
 
 if __name__ == "__main__":
  	test()
