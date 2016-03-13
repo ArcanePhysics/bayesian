@@ -1,5 +1,6 @@
 from parsing.document import Document, Word
 from TypeClass import Type
+from TypeBayesian import Bayesian
 from os import path
 
 def test():
@@ -12,6 +13,8 @@ def test():
 	d2.initFromArray(b)
 
 	t = Type( d1, 'test' )
+	print t.words
+	
 	t.train(d2)
 
 	print t.words
@@ -31,7 +34,16 @@ def test():
 	for d in docs[1:5]:
 		spam.train(d)
 
-	print spam.getProb( 'people' )
+	print spam.getProb( 'a' )
+
+	print spam.test(docs[1])
+
+	bayesian = Bayesian()
+	bayesian.train(docs[0], "spam")
+	bayesian.train(docs[1], "spam")
+	bayesian.train(docs[2], "non-spam")
+	bayesian.train(docs[3], "non-spam")
+	print bayesian.identify(docs[4])
 
 if __name__ == "__main__":
  	test()
