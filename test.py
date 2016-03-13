@@ -1,6 +1,6 @@
 from parsing.document import Document, Word
 from TypeClass import Type
-from TypeBayesian import Bayesian
+from BayesianClass import Bayesian
 from os import path
 
 def test():
